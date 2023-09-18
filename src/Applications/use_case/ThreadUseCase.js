@@ -21,7 +21,7 @@ class ThreadUseCase {
     comments = comments.map((comment) => ({
       id: comment.id,
       username: comment.username,
-      date: comment.created_at,
+      date: comment.date,
       content: comment.deleted_at
         ? '**komentar telah dihapus**'
         : comment.content,

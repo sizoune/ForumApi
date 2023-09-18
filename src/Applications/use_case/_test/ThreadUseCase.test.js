@@ -96,7 +96,7 @@ describe('Get Thread By ID Use Case', () => {
       ...expectedThreadReturn,
       comments: expectedComments.map((comment) => ({
         content: comment.content,
-        date: comment.created_at,
+        date: comment.date,
         id: comment.id,
         username: comment.username,
       })),
@@ -152,7 +152,7 @@ describe('Get Thread By ID Use Case', () => {
       ...expectedThread,
       comments: expectedComments.map(({ deleted_at: deletedComment, ...otherProperties }) => otherProperties).map((comment) => ({
         content: comment.content,
-        date: comment.created_at,
+        date: comment.date,
         id: comment.id,
         username: comment.username,
       })),
