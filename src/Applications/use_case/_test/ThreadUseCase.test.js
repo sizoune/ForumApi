@@ -60,7 +60,7 @@ describe('Get Thread By ID Use Case', () => {
       id: 'thread-123',
       title: 'ini adalah judul thread',
       body: 'ini adalah isi thread',
-      date: '2022',
+      created_at: '2022',
       username: 'dicoding',
     };
     const expectedComments = [

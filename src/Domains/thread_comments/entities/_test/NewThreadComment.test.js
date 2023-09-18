@@ -37,5 +37,7 @@ describe('a NewThreadComment entities', () => {
     // Assert
     expect(threadComment).toBeInstanceOf(NewThreadComment);
     expect(threadComment.content).toEqual(payload.content);
+    expect(threadComment.threadId).toEqual(payload.threadId);
+    expect(threadComment.owner).toEqual(payload.owner);
   });
 });

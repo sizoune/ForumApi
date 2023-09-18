@@ -2,6 +2,7 @@ const AuthorizationError = require('../../Commons/exceptions/AuthorizationError'
 const NotFoundError = require('../../Commons/exceptions/NotFoundError');
 const AddedThreadComment = require('../../Domains/thread_comments/entities/AddedThreadComment');
 const ThreadCommentRepository = require('../../Domains/thread_comments/ThreadCommentsRepository');
+const { mapCommentDBToModel } = require('../util');
 
 class ThreadCommentRepositoryPostgres extends ThreadCommentRepository {
   constructor(pool, idGenerator) {
@@ -56,7 +57,7 @@ class ThreadCommentRepositoryPostgres extends ThreadCommentRepository {
     };
     const { rows } = await this._pool.query(query);
 
-    return rows;
+    return rows.map((comment) => mapCommentDBToModel(comment));
   }
 
   async verifyAvailableThreadCommentInThread(commentId, threadId) {
@@ -70,8 +71,6 @@ class ThreadCommentRepositoryPostgres extends ThreadCommentRepository {
     if (!rowCount) {
       throw new NotFoundError('Komentar pada thread ini tidak ditemukan');
     }
-
-    return rowCount;
   }
 
   async deleteThreadCommentById(commentId) {
@@ -86,8 +85,6 @@ class ThreadCommentRepositoryPostgres extends ThreadCommentRepository {
     if (!rowCount) {
       throw new NotFoundError('Komentar tidak ditemukan');
     }
-
-    return rowCount;
   }
 }
 

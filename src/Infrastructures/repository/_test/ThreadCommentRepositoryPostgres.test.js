@@ -127,14 +127,7 @@ describe('ThreadCommentRepositoryPostgres', () => {
           {},
         );
 
-        let commentDetails = await commentRepositoryPostgres.getThreadCommentsByThreadId('thread-123');
-
-        commentDetails = commentDetails.map((comment) => ({
-          id: comment.id,
-          content: comment.content,
-          date: comment.created_at,
-          username: comment.username,
-        }));
+        const commentDetails = await commentRepositoryPostgres.getThreadCommentsByThreadId('thread-123');
 
         expect(commentDetails).toEqual([
           { ...threadComment, username: 'SomeUser' },

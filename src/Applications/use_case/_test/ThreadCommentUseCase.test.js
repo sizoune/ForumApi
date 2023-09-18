@@ -68,6 +68,7 @@ describe('DeleteThreadCommentUseCase', () => {
       threadId: 'thread-123',
       owner: 'user-123',
     };
+    const expectedOwner = true;
 
     const mockThreadCommentRepository = new ThreadCommentsRepository();
     const mockThreadRepository = new ThreadRepository();
@@ -76,7 +77,7 @@ describe('DeleteThreadCommentUseCase', () => {
     mockThreadCommentRepository.verifyAvailableThreadCommentInThread = jest.fn()
       .mockImplementation(() => Promise.resolve());
     mockThreadCommentRepository.verifyThreadCommentOwner = jest.fn()
-      .mockImplementation(() => Promise.resolve());
+      .mockImplementation(() => Promise.resolve(expectedOwner));
     mockThreadCommentRepository.deleteThreadCommentById = jest.fn()
       .mockImplementation(() => Promise.resolve());
 
