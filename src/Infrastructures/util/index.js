@@ -16,11 +16,13 @@ const mapCommentDBToModel = ({
   id,
   content,
   created_at,
+  deleted_at,
   username,
 }) => ({
   id,
   content,
   date: created_at,
+  deleted_at,
   username,
 });
 

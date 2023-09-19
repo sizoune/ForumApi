@@ -17,7 +17,7 @@ class ThreadUseCase {
     let comments = await this._threadCommentRepository.getThreadCommentsByThreadId(
       threadId,
     );
-
+    console.log(comments);
     comments = comments.map((comment) => ({
       id: comment.id,
       username: comment.username,

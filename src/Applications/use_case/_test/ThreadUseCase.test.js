@@ -60,14 +60,14 @@ describe('Get Thread By ID Use Case', () => {
       id: 'thread-123',
       title: 'ini adalah judul thread',
       body: 'ini adalah isi thread',
-      created_at: '2022',
+      date: '2022',
       username: 'dicoding',
     };
     const expectedComments = [
       {
         id: 'comment-123',
         username: 'dicoding',
-        created_at: '2022',
+        date: '2022',
         content: 'ini adalah isi komentar',
       },
     ];
@@ -115,7 +115,7 @@ describe('Get Thread By ID Use Case', () => {
       id: 'thread-123',
       title: 'ini adalah judul thread',
       body: 'ini adalah isi thread',
-      created_at: '2022',
+      date: '2022',
       username: 'dicoding',
     };
 
@@ -123,7 +123,7 @@ describe('Get Thread By ID Use Case', () => {
       {
         id: 'comment-123',
         username: 'dicoding',
-        created_at: '2022',
+        date: '2022',
         content: '**komentar telah dihapus**',
         deleted_at: '2023-09-17T010:26:00.000Z',
       },
