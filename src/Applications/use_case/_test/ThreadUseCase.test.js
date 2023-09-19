@@ -150,12 +150,7 @@ describe('Get Thread By ID Use Case', () => {
     // Assert
     expect(theThread).toStrictEqual({
       ...expectedThread,
-      comments: expectedComments.map(({ deleted_at: deletedComment, ...otherProperties }) => otherProperties).map((comment) => ({
-        content: comment.content,
-        date: comment.date,
-        id: comment.id,
-        username: comment.username,
-      })),
+      comments: expectedComments.map(({ deleted_at: deletedComment, ...otherProperties }) => otherProperties),
     });
     expect(mockThreadRepository.getThreadByID).toBeCalledWith(useCasePayload.threadId);
     expect(mockThreadCommentRepository.getThreadCommentsByThreadId).toBeCalledWith(useCasePayload.threadId);

@@ -129,7 +129,7 @@ describe('ThreadCommentRepositoryPostgres', () => {
 
         const commentDetails = await commentRepositoryPostgres.getThreadCommentsByThreadId('thread-123');
 
-        expect(commentDetails).toEqual([
+        expect(commentDetails.map(({ deleted_at: deletedComment, ...otherProperties }) => otherProperties)).toEqual([
           { ...threadComment, username: 'SomeUser' },
         ]);
       });
